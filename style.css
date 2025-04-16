@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #161616;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+}
+
+.grid {
+	display: flex;
+	margin: 100px auto;
+	flex-wrap: wrap;
+	width: 800px;
+	background-color: #fff;
+}
+
+.square-div {
+	height: 40px;
+	width: 40px;
+	background-color: #ffffff;
+}
