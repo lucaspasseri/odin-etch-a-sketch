@@ -76,7 +76,7 @@ function resetGrid() {
 
 	while (gridSideSize > 100) {
 		gridSideSize = prompt(
-			`(It must to be less than 100)
+			`(It must to be less than or equal to 100)
 Insert the side size of the grid:`,
 			16
 		);
