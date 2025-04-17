@@ -1,13 +1,20 @@
 let gridSideSize = 16;
 const gridWidth = 800;
 
-const startGridBtn = document.createElement("button");
-startGridBtn.textContent = "Start Grid";
-startGridBtn.addEventListener("click", startGrid);
-startGridBtn.style = "display: flex; margin-top: 100px; height: fit-content";
-
 const container = document.querySelector(".container");
-container.appendChild(startGridBtn);
+
+const navBar = document.createElement("nav");
+navBar.textContent = "Etch a Sketch";
+navBar.className = "navbar";
+
+container.appendChild(navBar);
+
+const resetGridBtn = document.createElement("button");
+resetGridBtn.textContent = "Reset Grid";
+resetGridBtn.addEventListener("click", resetGrid);
+resetGridBtn.className = "reset-grid-btn";
+
+container.appendChild(resetGridBtn);
 
 const grid = createGrid(gridSideSize);
 
@@ -22,7 +29,24 @@ function decreaseBackgroundColor(event) {
 
 	const randomNumber = Math.floor(Math.random() * rgbArray.length);
 
-	rgbArray[randomNumber] -= 85;
+	const rgbParameter = rgbArray[randomNumber];
+
+	if (rgbParameter === "0") {
+		for (let i = 0; i < rgbArray.length; i++) {
+			if (i === randomNumber) continue;
+
+			const currRgbParameter = rgbArray[i];
+
+			if (currRgbParameter === "0") {
+				continue;
+			}
+
+			rgbArray[i] = currRgbParameter - 85;
+			break;
+		}
+	} else {
+		rgbArray[randomNumber] -= 85;
+	}
 
 	const newRgbValue = `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]})`;
 
@@ -47,7 +71,7 @@ function createGrid(gridSideSize) {
 	return grid;
 }
 
-function startGrid() {
+function resetGrid() {
 	gridSideSize = prompt("Insert the side size of the grid:", 16);
 
 	while (gridSideSize > 100) {

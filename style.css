@@ -3,18 +3,43 @@
 }
 
 body {
-	background-color: #161616;
+	background-color: #474787;
 	margin: 0;
 	padding: 0;
 }
 
+button {
+	cursor: pointer;
+}
+
+.navbar {
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 36px;
+	color: #ececec;
+	background-color: #2d2c54;
+}
+
 .container {
 	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.reset-grid-btn {
+	display: flex;
+	height: fit-content;
+	width: fit-content;
+	padding: 4px 12px;
+	font-size: 20px;
+	margin: 100px auto 0;
 }
 
 .grid {
 	display: flex;
-	margin: 100px auto;
+	margin: 20px auto;
 	flex-wrap: wrap;
 	width: 800px;
 	background-color: #fff;
